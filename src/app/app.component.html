@@ -1,0 +1,33 @@
+<div class="containeer-fluid">
+  <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
+    <a class="navbar-brand nav-link" href="#" routerLink="/clientes">
+    <i class="fa fa-user-edit"></i>
+    </a>
+    <div class="navbar-collapse collapsed" id="navbarContent">
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+      <a class="nav-link" href="#" routerLink="/clientes/listar">Clientes</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#" routerLink="/produtos/listar">Produtos</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#" routerLink="/pedidos/listar">Pedidos</a>
+      </li>
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" 
+        role="button"> Cadastros </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" 
+        class="dropdown-menu">
+        <a ngbDropdownItem href="#" routerLink="/clientes/listar" 
+        (click)="$event.preventDefault()">Clientes</a>
+        <a ngbDropdownItem href="#" routerLink="/produtos/listar" 
+        (click)="$event.preventDefault()">Produtos</a>
+        <a ngbDropdownItem href="#" routerLink="/pedidos/listar" 
+        (click)="$event.preventDefault()">Pedidos</a>
+        </div>
+        </li>
+        </ul>
+        </div>
+       </nav>
+     <router-outlet></router-outlet>

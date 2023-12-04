@@ -1,0 +1,50 @@
+<h1>Editar Pedido</h1>
+<div class="well">
+<form #formPedido="ngForm" >
+<div class="form-group">
+<label for="data">Data:</label>
+<input type="text" class="form-control" id="data" name="data"
+[(ngModel)]="pedido.data"
+#data="ngModel"
+minlength="2" required>
+    <div *ngIf="data.errors && (data.dirty || data.touched)" 
+class="alert alert-danger">
+<div [hidden]="!data.errors['required']"> Digite a data do pedido. </div>
+<div [hidden]="!data.errors['minlength']"> A data deve conter ao menos 2 caracteres. </div>
+</div>
+</div>
+<div class="form-group">
+    <label for="quantidade">Quantidade:</label>
+    <input type="text" class="form-control" id="quantidade" name="quantidade"
+[(ngModel)]="pedido.quantidade"
+#quantidade="ngModel"
+    required>
+    <div *ngIf="quantidade.errors && (quantidade.dirty || quantidade.touched)" 
+    class="alert alert-danger">
+    <div [hidden]="!quantidade.errors['required']"> Digite a quantidade de itens do pedido. 
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input type="text" class="form-control" id="cpf" name="cpf"
+        [(ngModel)]="pedido.cpf"
+#cpf="ngModel"
+        required>
+        <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)"
+        class="alert alert-danger">
+       <div [hidden]="!cpf.errors['required']"> Digite o CPF do pedido. </div>
+        </div>
+        </div>
+    
+    <div class="form-group">
+    <button type="button" class="btn btn-primary"
+    (click)="atualizar()"
+    [disabled]="!formPedido.form.valid">
+    <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+    </button>
+    <a class="btn btn-secondary"
+    [routerLink]="['/pedidos/listar']">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+    </a>
+    </div>
+    </div>
